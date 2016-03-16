@@ -1,6 +1,13 @@
-from directory.exceptions import DirectoryException
+# -*- coding: utf-8 -*-
 
 class Person(object):
+    """
+    A person in the directory as returned in the search results.
+
+    Every instance of Person has a `webid` attribute, used to uniquely identify
+    that person within Middlebury.
+    """
+
     def __init__(self, **kwargs):
         for k, v in kwargs.iteritems():
             setattr(self, k, v)
