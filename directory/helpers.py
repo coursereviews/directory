@@ -15,6 +15,7 @@ search_field_aliases = {
     'department': 'Department'
 }
 
+
 def search_field_full_name(fields, key):
     for field in fields:
         if field.endswith(search_field_aliases[key]):
@@ -34,6 +35,7 @@ allowed_person_types = [
 allowed_person_type_aliases = {
     "Summer Graduate": "SUMMER GRAD"
 }
+
 
 def valid_person_type(person_type):
     if person_type in allowed_person_type_aliases:
@@ -182,6 +184,7 @@ allowed_departments = [
     "Women's and Gender Studies",
     "Writing Program"
 ]
+
 
 def valid_department(department):
     return department in allowed_departments

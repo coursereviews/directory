@@ -7,6 +7,7 @@ from directory.helpers import (search_field_aliases,
                                valid_person_type,
                                search_field_full_name)
 
+
 class Search(object):
     def __init__(self, query='', last_name='', first_name='', email='',
                  phone='', address='', location='', job_title='',

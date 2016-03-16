@@ -4,6 +4,10 @@ python:
   - "2.7"
   - "3.5"
 
-install: "pip install ."
+install:
+  - "pip install ."
+  - "pip install pep8"
 
-script: "python -m unittest tests.tests"
+script:
+  - "pep8 ."
+  - "python -m unittest tests.tests"

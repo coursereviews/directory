@@ -18,8 +18,10 @@ person_url = 'https://directory.middlebury.edu/GetRecord.aspx'
 def get_search_inputs():
     res = requests.get(directory_url)
     tree = html.fromstring(res.text)
+    inputs = CSSSelector('#aspnetForm input, #aspnetForm select')
     return dict((i.get('name'), i.get('value', ''))
-                 for i in CSSSelector('#aspnetForm input, #aspnetForm select')(tree))
+                for i in inputs(tree))
+
 
 def get_results(search_fields):
     res = requests.post(search_url, data=search_fields)
@@ -29,6 +31,7 @@ def get_results(search_fields):
                for result in CSSSelector('.ResultItem .lnkName')(tree)]
 
     return [get_person(webid) for webid in web_ids]
+
 
 def get_person(id):
     res = requests.get(person_url, params={'webid': id})

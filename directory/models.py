@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 class Person(object):
     """
     A person in the directory as returned in the search results.
