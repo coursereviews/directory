@@ -29,10 +29,10 @@ class PersonTests(TestCase):
         self.assertEqual(repr(person), '<Person 1>')
 
 
-def HelperTests(TestCase):
+class HelperTests(TestCase):
     def test_search_field_full_name(self):
         fields = {'ctl00$ctl00$PageContent$PageContent$middDirectoryForm$txtTelephonenumber': ''}  # noqa
-        full = search_field_full_name(fields.keys(), 'Telephonenumber')
+        full = search_field_full_name(fields.keys(), 'phone')
 
         self.assertIn(full, fields)
 
