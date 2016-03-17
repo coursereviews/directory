@@ -8,6 +8,8 @@ from directory.helpers import (search_field_aliases,
                                search_field_full_name,
                                valid_department,
                                valid_person_type)
+from directory.search import Search
+from directory.exceptions import DirectoryValidationException
 
 
 class PersonTests(TestCase):
@@ -78,3 +80,42 @@ class ScraperTests(TestCase):
 
         self.assertEqual(person.email, 'dry@middlebury.edu')
         self.assertEqual(person.name, 'Dry, Murray P.')
+
+class SearchTests(TestCase):
+    def test_set_query_init(self):
+        q = Search('make the directory great again')
+        self.assertEqual(q.query, 'make the directory great again')
+
+    def test_set_query_setter(self):
+        q = Search()
+        q.query = 'make the directory great again'
+        self.assertEqual(q.query, 'make the directory great again')
+
+    def test_set_advanced_search(self):
+        q = Search(email='email@middlebury.edu')
+        self.assertEqual(q.email, 'email@middlebury.edu')
+
+    def test_validate(self):
+        valid_dept = Search(department='Computer Science')
+        valid_dept.validate()
+
+        invalid_dept = Search(department='Not A Department')
+        with self.assertRaises(DirectoryValidationException):
+            invalid_dept.validate()
+
+        valid_field = Search(address='MBH 200')
+        valid_field.validate()
+
+        # Need to set invalid field with set attr since
+        # keyword args are restricted to known fields
+        invalid_field = Search()
+        invalid_field.room = 'MBH 200'
+        with self.assertRaises(DirectoryValidationException):
+            invalid_field.validate()
+
+        valid_person_type = Search(person_type='Student')
+        valid_person_type.validate()
+
+        invalid_person_type = Search(person_type='Not A Type')
+        with self.assertRaises(DirectoryValidationException):
+            invalid_person_type.validate()
