@@ -81,6 +81,7 @@ class ScraperTests(TestCase):
         self.assertEqual(person.email, 'dry@middlebury.edu')
         self.assertEqual(person.name, 'Dry, Murray P.')
 
+
 class SearchTests(TestCase):
     def test_set_query_init(self):
         q = Search('make the directory great again')
