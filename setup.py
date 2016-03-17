@@ -17,7 +17,7 @@ setup(
     version='0.0.1',
     packages=['directory'],
     include_package_data=True,
-    license='MIT License',
+    license='MIT',
     description='A Python API for the Middlebury directory.',
     long_description=README,
     url='https://github.com/coursereviews/directory',
@@ -25,8 +25,6 @@ setup(
     author='Dana Silver',
     author_email='dsilver@middlebury.edu',
     classifiers=[
-        'Environment :: Web Environment',
-        'Framework :: Django',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
