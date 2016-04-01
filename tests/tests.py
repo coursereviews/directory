@@ -129,8 +129,22 @@ class SearchTests(TestCase):
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0].webid, '076325FE8E9D69193C080B0052AB9561')
 
+    def test_simple_search(self):
+        query = Search('murray dry')
+        results = query.results()
+
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0].webid, '076325FE8E9D69193C080B0052AB9561')
+
+
 class SearchMethodTests(TestCase):
     def test_search_method(self):
         results = search(email='dry@middlebury.edu')
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0].webid, '076325FE8E9D69193C080B0052AB9561')
+
+    def test_search_method_simple_search(self):
+        results = search('murray dry')
+
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0].webid, '076325FE8E9D69193C080B0052AB9561')

@@ -3,7 +3,7 @@
 # Map our names for the search inputs to the endings of the
 # long names given in the directory
 search_field_aliases = {
-    'query': 'SimpleSearch',
+    'query': 'txtSimpleSearch',
     'last_name': 'LastName',
     'first_name': 'FirstName',
     'email': 'Samaccountname',
@@ -13,6 +13,11 @@ search_field_aliases = {
     'job_title': 'Title',
     'person_type': 'Type',
     'department': 'Department'
+}
+
+search_button_aliases = {
+    'simple': 'ctl00$ctl00$PageContent$PageContent$middDirectoryForm$btnSimpleSearch',  # NOQA
+    'advanced': 'ctl00$ctl00$PageContent$PageContent$middDirectoryForm$btnSearch'  # NOQA
 }
 
 

@@ -3,5 +3,5 @@
 from directory.search import Search
 
 
-def search(**kwargs):
-    return Search(**kwargs).results()
+def search(*args, **kwargs):
+    return Search(*args, **kwargs).results()
