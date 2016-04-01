@@ -122,6 +122,12 @@ class SearchTests(TestCase):
         with self.assertRaises(DirectoryValidationException):
             invalid_person_type.validate()
 
+        simple_advanced = Search()
+        simple_advanced.query = 'test'
+        simple_advanced.email = 'test@test.com'
+        with self.assertRaises(DirectoryValidationException):
+            simple_advanced.validate()
+
     def test_search(self):
         query = Search(email='dry@middlebury.edu')
         results = query.results()
