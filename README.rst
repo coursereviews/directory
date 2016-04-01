@@ -13,6 +13,15 @@ A Python API for the Middlebury directory.
     search(email="dsilver@middlebury.edu")
     # [<Person 30972781062F9A6167A8D944F82CFD64>]
 
+
+Install
+-------
+
+.. code-block::
+
+    $ pip install middlebury-directory
+    
+
 Simple Search
 -------------
 

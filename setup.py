@@ -14,7 +14,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='middlebury-directory',
-    version='0.0.1',
+    version='1.0.0',
     packages=['directory'],
     include_package_data=True,
     license='MIT',
@@ -24,6 +24,7 @@ setup(
     install_requires=requires,
     author='Dana Silver',
     author_email='dsilver@middlebury.edu',
+    keywords='directory middlebury search people',
     classifiers=[
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
