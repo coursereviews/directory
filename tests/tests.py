@@ -9,6 +9,7 @@ from directory.helpers import (search_field_aliases,
                                valid_department,
                                valid_person_type)
 from directory.search import Search
+from directory import search
 from directory.exceptions import DirectoryValidationException
 
 
@@ -125,5 +126,11 @@ class SearchTests(TestCase):
         query = Search(email='dry@middlebury.edu')
         results = query.results()
 
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0].webid, '076325FE8E9D69193C080B0052AB9561')
+
+class SearchMethodTests(TestCase):
+    def test_search_method(self):
+        results = search(email='dry@middlebury.edu')
         self.assertEqual(len(results), 1)
         self.assertEqual(results[0].webid, '076325FE8E9D69193C080B0052AB9561')
