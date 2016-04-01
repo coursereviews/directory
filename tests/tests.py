@@ -120,3 +120,10 @@ class SearchTests(TestCase):
         invalid_person_type = Search(person_type='Not A Type')
         with self.assertRaises(DirectoryValidationException):
             invalid_person_type.validate()
+
+    def test_search(self):
+        query = Search(email='dry@middlebury.edu')
+        results = query.results()
+
+        self.assertEqual(len(results), 1)
+        self.assertEqual(results[0].webid, '076325FE8E9D69193C080B0052AB9561')
