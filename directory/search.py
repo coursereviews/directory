@@ -38,7 +38,7 @@ class Search(object):
             raise DirectoryValidationException('"{}" not a valid person type'
                                                .format(self.person_type))
 
-        if self.query and len(filter(None, self.__dict__.values())) > 1:
+        if self.query and len([v for v in self.__dict__.values() if v]) > 1:
             raise DirectoryValidationException('Cannot set both query and'
                                                'advanced search params.')
 
